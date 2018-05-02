@@ -16,7 +16,7 @@
                 var chart = new CanvasJS.Chart(chartname,
                     {
                         title: {
-                            text: req.province
+                            text: ''
                         },
                         axisX:{
                             valueFormatString: "DD MMM",
@@ -44,7 +44,7 @@
         var url1 = 'http://localhost:3000/pie';
         var url2 = 'http://localhost:3000/column';
         var request_column= {
-            start_date:'2018-04-18',
+            start_date:'2018-04-15',
             end_date:'2018-04-25'
         };
         var request_line={

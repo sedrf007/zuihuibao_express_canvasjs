@@ -35,6 +35,11 @@ app.post('/index_total',premiumRouter);
 app.post('/line',premiumRouter);
 app.post('/tiny_column',premiumRouter);
 app.post('/subline',premiumRouter);
+app.post('/line_all',businessRouter);
+app.post('/businesspie',businessRouter);
+app.post('/subpie',businessRouter);
+
+
 // app.use('/user/:id', function (req, res, next) {
 //     console.log('Request Type:', req.method)
 //     next()

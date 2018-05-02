@@ -349,3 +349,7 @@ body{
 .tiny-column{
     padding-bottom: 10px;
 }
+
+.main-chart{
+    height:600px;
+}

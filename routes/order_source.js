@@ -30,14 +30,15 @@ router.post('/line_all',function (req,res) {
     var type = req.body.type;
     var value = req.body.value;
 
-    var sql1 = "select sum(total_premium),order_source from preimum_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source='pc' order by date asc";
-    var sql2 = "select sum(total_premium),order_source from preimum_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source='app' order by date asc";
-    var sql3 = "select sum(total_premium),order_source from preimum_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source='weixin' order by date asc";
+    var sql1 = "select sum(premium) as money,'在线经纪' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=2 group by date order by date asc";
+    var sql2 = "select sum(premium) as money,'网销' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=0 group by date order by date asc";
+    var sql3 = "select sum(premium) as money,'电销' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=5 group by date order by date asc";
 
     var sql = sql1+';'+sql2+';'+sql3;
     pool.getConnection(function(err,connection){
         connection.query(sql,function(err,rows){
             //console.log(rows);
+            console.log(sql);
             res.json(rows);
             connection.release();
         })
@@ -50,28 +51,41 @@ router.post('/businesspie',function (req,res) {
     var type = req.body.type;
     var value = req.body.value;
     var ins_list = [
-        'pc',
-        'weixin',
-        'app',
-        'other'
+        '网销',
+        '未知',
+        '在线经纪',
+        '亚夏',
+        '华胜',
+        '电销'
     ];
     var premium_all=0;
     var premium = [];
 
     pool.getConnection(function (err, connection) {
-        connection.query("SELECT sum(premium) as money,order_source from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' group by order_source order by money desc", function (err, rows, fields) {
-            console.log(rows);
-            rows.forEach(function(element){
-                premium_all = premium_all+parseInt(element.money);
-            });
-            for(i=0;i<4;i++){
-                per = rows[i].money/premium_all*100;
-                per=per.toFixed(2);
-                premium[i]={
-                    order_source : rows[i].insurance_company,
-                    percentage : per
-                }
+        var mysql = "SELECT sum(premium) as money,order_source from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' group by order_source order by money desc";
+        if(type!=null){
+            mysql = "SELECT sum(premium) as money,order_source from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and "+type+" ='"+value+"' group by order_source order by money desc";
+        }
+        connection.query(mysql, function (err, rows, fields) {
+            //console.log(rows);
+            var i = 0;
+            for(j=0;j<rows.length ;j++){
+                premium_all = premium_all+parseInt(rows[j].money);
             }
+            rows.forEach(function(element){
+                console.log(element)
+                if(element.money>0){
+                    per = rows[i].money/premium_all*100;
+                    per=per.toFixed(2);
+                    premium[i]={
+                        order_source : ins_list[rows[i].order_source],
+                        percentage : per
+                    };
+                    i++;
+                }
+            });
+
+
             //console.log(premium);
             //if (err) throw err;
             res.json(premium);
@@ -81,8 +95,20 @@ router.post('/businesspie',function (req,res) {
     });
 });
 
-router.post('/tinypie',function (req,res) {
+router.post('/subpie',function (req,res) {
+    var type = req.body.type;
+    var start_date = req.body.start_date;
+    var end_date = req.body.end_date;
 
+    var sql = "select sum(premium) as money,"+type+" from premium_order_source where date>'"+start_date+"' and date<'"+end_date+"' group by "+type+" order by money desc";
+
+    pool.getConnection(function(err,connection){
+        connection.query(sql,function(err,rows){
+            console.log(rows);
+            res.json(rows);
+            connection.release();
+        })
+    })
 });
 
 module.exports=router;

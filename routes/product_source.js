@@ -33,7 +33,7 @@ router.post('/product_line',function (req,res) {
     var sql1 = "select sum(premium) as money,'sync' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='sync' group by date order by date asc";
     var sql2 = "select sum(premium) as money,'app' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='app' group by date order by date asc";
     var sql3 = "select sum(premium) as money,'pc' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='pc' group by date order by date asc";
-    var sql4 = "select sum(premium) as money,'other' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='other' group by date order by date asc";
+    var sql4 = "select sum(premium) as money,'weixin' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='other' group by date order by date asc";
 
     var sql = sql1+';'+sql2+';'+sql3+';'+sql4;
     pool.getConnection(function(err,connection){

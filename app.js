@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var premiumRouter = require('./routes/total_premium');
 var businessRouter = require('./routes/order_source');
+var businessRouter = require('./routes/product_source');
 
 var app = express();
 // view engine setup
@@ -38,6 +39,9 @@ app.post('/subline',premiumRouter);
 app.post('/line_all',businessRouter);
 app.post('/businesspie',businessRouter);
 app.post('/subpie',businessRouter);
+app.post('/product_line',businessRouter);
+app.post('/productpie',businessRouter);
+app.post('/subproduct',businessRouter);
 
 
 // app.use('/user/:id', function (req, res, next) {

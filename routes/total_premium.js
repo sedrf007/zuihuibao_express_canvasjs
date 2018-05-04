@@ -27,8 +27,8 @@ function getDateStr(dayCount){
 }
 
 router.post('/total_premium', function(req, res, next) {
-    var date1 = getDateStr(-15);
-    var date2 = getDateStr(0);
+    var date1 = req.body.start_date;
+    var date2 = req.body.end_date;
     pool.getConnection(function (err, connection) {
         connection.query("SELECT premium as money,date from premium_provider where provider='agent' and date>'"+date1+"' and date<'"+date2+"' order by date asc", function (err, rows, fields) {
             //if (err) throw err;
@@ -47,8 +47,8 @@ router.post('/total_premium', function(req, res, next) {
 });
 
 router.post('/pie',function(req,res,next){
-    var date1 = getDateStr(-15);
-    var date2 = getDateStr(0);
+    var date1 = req.body.start_date;
+    var date2 = req.body.end_date;
     var ins_list = [
         'RENBAO',
         'TAIPINGYANG',
@@ -125,9 +125,9 @@ router.post('/index_total',function (req,res) {
     // var sql1 = "select sum(premium) as money from premium_all where date>'"+yes+"' and date<'"+today+"'";
     // var sql2 = "select sum(premium) as money from premium_all where date>'"+month+"' and date<'"+today+"'";
     // var sql3 = "select sum(premium) as money from premium_all where date>'"+year+"' and date<'"+today+"'";
-    sql1 = "select sum(premium) as money from premium_all where date>='2018-04-24' and date<'2018-04-25'";
-    sql2= "select sum(premium) as money from premium_all where date>='2018-03-24'";
-    sql3="select sum(premium) as money from premium_all where date>='2018-01-01'";
+    sql1 = "select sum(premium) as money from premium_all where date>='"+yes+"' and date<'"+today+"'";
+    sql2= "select sum(premium) as money from premium_all where date>='"+month+"'";
+    sql3="select sum(premium) as money from premium_all where date>='"+year+"'";
     var sql = sql1+';'+sql2+';'+sql3
     console.log(sql);
     pool.getConnection(function(err,connection){

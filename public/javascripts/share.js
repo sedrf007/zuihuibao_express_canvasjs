@@ -76,7 +76,6 @@
         $.setEndTime();
         $.datepickerjQ();
         var time=-13;
-        console.log(timeConfig(time));
         var  start=timeConfig(time).split('/')[0];
         var d=start.split('-')[2];
         var m=start.split('-')[1];

@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd48a0df-9b30-465c-85a2-681c4701bfb2" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/chart_product.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/chart_business.js" afterPath="$PROJECT_DIR$/public/javascripts/chart_business.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/chart_tiny.js" afterPath="$PROJECT_DIR$/public/javascripts/chart_tiny.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/share.js" afterPath="$PROJECT_DIR$/public/javascripts/share.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/index.css" afterPath="$PROJECT_DIR$/public/stylesheets/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/jquery-ui-1.9.2.custom.css" afterPath="$PROJECT_DIR$/public/stylesheets/jquery-ui-1.9.2.custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/html/business_type.html" afterPath="$PROJECT_DIR$/routes/html/business_type.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/html/index.html" afterPath="$PROJECT_DIR$/routes/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/html/product.html" afterPath="$PROJECT_DIR$/routes/html/product.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/total_premium.js" afterPath="$PROJECT_DIR$/routes/total_premium.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery-ui-1.9.2.custom.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="jquery-ui-1.9.2.custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/jquery-ui-1.9.2.custom.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
@@ -62,8 +53,8 @@
       <file leaf-file-name="share.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/share.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="88" column="54" lean-forward="true" selection-start-line="88" selection-start-column="54" selection-end-line="88" selection-end-column="54" />
+            <state relative-caret-position="930">
+              <caret line="77" column="21" lean-forward="false" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -72,26 +63,26 @@
       <file leaf-file-name="chart_business.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/chart_business.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="189" column="14" lean-forward="false" selection-start-line="189" selection-start-column="14" selection-end-line="189" selection-end-column="14" />
+            <state relative-caret-position="268">
+              <caret line="268" column="8" lean-forward="true" selection-start-line="268" selection-start-column="8" selection-end-line="271" selection-end-column="10" />
               <folding>
                 <element signature="e#59#1925#0" expanded="false" />
                 <element signature="e#1963#6816#0" expanded="false" />
-                <element signature="e#6845#7950#0" expanded="false" />
                 <element signature="e#8310#8399#0" expanded="false" />
-                <element signature="e#8516#9794#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chart_tiny.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chart_tiny.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/chart_tiny.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="220" column="25" lean-forward="false" selection-start-line="220" selection-start-column="17" selection-end-line="220" selection-end-column="25" />
+            <state relative-caret-position="120">
+              <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
               <folding>
                 <element signature="e#53#1497#0" expanded="false" />
+                <element signature="e#4455#5365#0" expanded="false" />
+                <element signature="e#5420#6668#0" expanded="false" />
                 <element signature="n#!!block;n#requestdata#0" expanded="false" />
               </folding>
             </state>
@@ -138,13 +129,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>total_line</find>
       <find>canvasjs</find>
       <find>toogleDataSeries</find>
       <find>pie_all</find>
       <find>Promise</find>
       <find>business_line</find>
-      <find>chart_pie_all</find>
       <find>chart_tiny</find>
       <find>subpie</find>
       <find>businesspie</find>
@@ -156,7 +145,6 @@
       <find>ui-datepicker-quick</find>
       <find>dateList</find>
       <find>startDate</find>
-      <find>chartcolumn</find>
       <find>datePickers</find>
       <find>Prev</find>
       <find>titl</find>
@@ -167,7 +155,10 @@
       <find>_mainDivId</find>
       <find>time</find>
       <find>timeConfig</find>
+      <find>chartcolumn</find>
+      <find>chart_pie_all</find>
       <find>datalist</find>
+      <find>$.chartcolumn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,11 +172,11 @@
         <option value="$PROJECT_DIR$/public/stylesheets/index.css" />
         <option value="$PROJECT_DIR$/routes/html/index.html" />
         <option value="$PROJECT_DIR$/public/stylesheets/jquery-ui-1.9.2.custom.css" />
-        <option value="$PROJECT_DIR$/public/javascripts/chart_tiny.js" />
         <option value="$PROJECT_DIR$/public/javascripts/chart_business.js" />
         <option value="$PROJECT_DIR$/public/javascripts/chart_product.js" />
         <option value="$PROJECT_DIR$/routes/total_premium.js" />
         <option value="$PROJECT_DIR$/public/javascripts/share.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/chart_tiny.js" />
       </list>
     </option>
   </component>
@@ -430,12 +421,12 @@
       <workItem from="1525227498481" duration="16326000" />
       <workItem from="1525250717618" duration="1091000" />
       <workItem from="1525251842225" duration="18113000" />
-      <workItem from="1525331327907" duration="28422000" />
+      <workItem from="1525331327907" duration="30255000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63952000" />
+    <option name="totallyTimeSpent" value="65785000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -530,6 +521,8 @@
           <caret line="122" column="18" lean-forward="true" selection-start-line="122" selection-start-column="18" selection-end-line="122" selection-end-column="18" />
           <folding>
             <element signature="e#53#1497#0" expanded="false" />
+            <element signature="e#4455#5365#0" expanded="false" />
+            <element signature="e#5420#6668#0" expanded="false" />
             <element signature="n#!!block;n#requestdata#0" expanded="false" />
           </folding>
         </state>
@@ -558,6 +551,8 @@
           <caret line="129" column="42" lean-forward="true" selection-start-line="129" selection-start-column="40" selection-end-line="129" selection-end-column="42" />
           <folding>
             <element signature="e#53#1497#0" expanded="false" />
+            <element signature="e#4455#5365#0" expanded="false" />
+            <element signature="e#5420#6668#0" expanded="false" />
             <element signature="n#!!block;n#requestdata#0" expanded="false" />
           </folding>
         </state>
@@ -728,20 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/chart_business.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="189" column="14" lean-forward="false" selection-start-line="189" selection-start-column="14" selection-end-line="189" selection-end-column="14" />
-          <folding>
-            <element signature="e#59#1925#0" expanded="false" />
-            <element signature="e#1963#6816#0" expanded="false" />
-            <element signature="e#6845#7950#0" expanded="false" />
-            <element signature="e#8310#8399#0" expanded="false" />
-            <element signature="e#8516#9794#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/total_premium.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
@@ -764,25 +745,6 @@
             <element signature="n#!!block;n#Product_Premium#0" expanded="false" />
             <element signature="n#!!block;n#Proportion_Product#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/chart_tiny.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="220" column="25" lean-forward="false" selection-start-line="220" selection-start-column="17" selection-end-line="220" selection-end-column="25" />
-          <folding>
-            <element signature="e#53#1497#0" expanded="false" />
-            <element signature="n#!!block;n#requestdata#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/share.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="88" column="54" lean-forward="true" selection-start-line="88" selection-start-column="54" selection-end-line="88" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -809,6 +771,39 @@
         <state relative-caret-position="264">
           <caret line="317" column="59" lean-forward="false" selection-start-line="317" selection-start-column="59" selection-end-line="317" selection-end-column="59" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/chart_business.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="268" column="8" lean-forward="true" selection-start-line="268" selection-start-column="8" selection-end-line="271" selection-end-column="10" />
+          <folding>
+            <element signature="e#59#1925#0" expanded="false" />
+            <element signature="e#1963#6816#0" expanded="false" />
+            <element signature="e#8310#8399#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/share.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="77" column="21" lean-forward="false" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/chart_tiny.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+          <folding>
+            <element signature="e#53#1497#0" expanded="false" />
+            <element signature="e#4455#5365#0" expanded="false" />
+            <element signature="e#5420#6668#0" expanded="false" />
+            <element signature="n#!!block;n#requestdata#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

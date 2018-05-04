@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/assets/css/admin.css">
     <link rel="stylesheet" href="/stylesheets/jquery-ui-1.9.2.custom.css" type="text/css">
     <link rel="stylesheet" href="/stylesheets/index.css">
-    <script src="/javascripts/echarts.simple.min.js"></script>
+    <script src="/javascripts/canvasjs.min.js"></script>
 
 </head>
 <body>
@@ -32,9 +32,9 @@
     </div>
 </header>
 <div class="head">
-    <a class="am-u-lg-4 am-u-md-6 am-u-sm-12 mr_r active" href="http://localhost:3000/"><i class="am-icon-bar-chart am-icon-sm"></i>保费</a>
+    <a class="am-u-lg-4 am-u-md-6 am-u-sm-12 mr_r" href="http://localhost:3000/"><i class="am-icon-bar-chart am-icon-sm"></i>保费</a>
     <a class="am-u-lg-4 am-u-md-6 am-u-sm-12 mr_r" href="http://localhost:3000/business"><i class="am-icon-area-chart am-icon-sm"></i>业务类型</a>
-    <a class="am-u-lg-4 am-u-md-6 am-u-sm-12" href="http://localhost:3000/product"><i class="am-icon-pie-chart am-icon-sm"></i>产品</a>
+    <a class="am-u-lg-4 am-u-md-6 am-u-sm-12 active" href="http://localhost:3000/product"><i class="am-icon-pie-chart am-icon-sm"></i>产品</a>
 </div>
 <div class="content">
     <div class="com">
@@ -79,8 +79,7 @@
                     <h2 class="am-titlebar-title">各产品保费趋势</h2>
                 </div>
                 <div class="box">
-                    <div id="tpl-echarts-A"></div>
-
+                    <div id="product_premium"  style="height: 300px; width: 100%;"></div>
                 </div>
             </div>
         </div>
@@ -90,8 +89,7 @@
                     <h2 class="am-titlebar-title ">产品占比</h2>
                 </div>
                 <div class="box">
-                    <div id="main2" style="width: 400px;height:200px;"></div>
-
+                    <div id="proportion_product" style="height: 300px; width: 100%;"></div>
                 </div>
             </div>
         </div>
@@ -101,6 +99,106 @@
             <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default mr_l20" >
                 <h2 class="am-titlebar-title ">各省产品占比</h2>
             </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title1"></h4>
+                <div style="height:200px" id="product1"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title2"></h4>
+                <div style="height:200px" id="product2"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title3"></h4>
+                <div style="height:200px" id="product3"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title4"></h4>
+                <div style="height:200px" id="product4"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title5"></h4>
+                <div style="height:200px" id="product5"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title6"></h4>
+                <div style="height:200px" id="product6"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title7"></h4>
+                <div style="height:200px" id="product7"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title8"></h4>
+                <div style="height:200px" id="product8"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title9"></h4>
+                <div style="height:200px" id="product9"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title10"></h4>
+                <div style="height:200px" id="product10"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title11"></h4>
+                <div style="height:200px" id="product11"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title12"></h4>
+                <div style="height:200px" id="product12"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title13"></h4>
+                <div style="height:200px" id="product13"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title14"></h4>
+                <div style="height:200px" id="product14"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title15"></h4>
+                <div style="height:200px" id="product15"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title16"></h4>
+                <div style="height:200px" id="product16"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title17"></h4>
+                <div style="height:200px" id="product17"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title18"></h4>
+                <div style="height:200px" id="product18"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title19"></h4>
+                <div style="height:200px" id="product19"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title20"></h4>
+                <div style="height:200px" id="product20"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title21"></h4>
+                <div style="height:200px" id="product21"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title22"></h4>
+                <div style="height:200px" id="product22"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title23"></h4>
+                <div style="height:200px" id="product23"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title24"></h4>
+                <div style="height:200px" id="product24"></div>
+            </div>
+            <div class="am-u-md-3 am-u-sm-12 tiny-column">
+                <h4 id="title25"></h4>
+                <div style="height:200px" id="product25"></div>
+            </div>
         </div>
     </div>
 
@@ -109,54 +207,12 @@
 <script src="/javascripts/jquery-2.2.2.min.js"></script>
 <!--<![endif]-->
 <script src="/assets/js/amazeui.min.js"></script>
+<script src="/layer/mobile/layer.js"></script>
+<script src="/layer/mobile/mylayer.js"></script>
 <script src="/javascripts/jquery-ui-1.9.2.custom.js" type = "text/javascript" language="javascript"></script>
 <script src="/javascripts/share.js" type = "text/javascript"></script>
+<script src="/javascripts/chart_product.js" type = "text/javascript"></script>
+<script src="/javascripts/canvasjs.min.js"></script>
 
-<script>
-    $(document).ready(function(){
-        $('.actions-btn li').click(function(){
-            $(this).addClass('active').siblings().removeClass('active')
-        });
-    });
-
-
-    echarts.init(document.getElementById('main2')).setOption({
-        series: {
-            type: 'pie',
-            data: [
-                {name: 'A', value: 1212},
-                {name: 'B', value: 2323},
-                {name: 'C', value: 1919}
-            ]
-        }
-    });
-</script>
-<script>
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
-
-    // 指定图表的配置项和数据
-    var option = {
-        title: {
-            text: 'ECharts 入门示例'
-        },
-        tooltip: {},
-        legend: {
-            data:['销量']
-        },
-        xAxis: {
-            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '销量',
-            type: 'bar',
-            data: [5, 20, 36, 10, 10, 20]
-        }]
-    };
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
 </body>
 </html>

@@ -1,8 +1,16 @@
 (function ($) {
     $.chart_pie = function (req,chartname) {
         return new Promise(function(resolve,reject){
+           // ShowLoading('加载中');
+            CanvasJS.addColorSet("greenShades",
+                [//colorSet Array
+                    "#63c2de",
+                    "#f8cb00",
+                    "#f86c6b"
+                ]);
             $.post('http://localhost:3000/businesspie',req).done(function (data) {
-                console.log(data.length);
+                //HideLoading();
+                console.log(data);
                 if(data.length>0){
                     var pie=[];
                     data.forEach(function (value) {
@@ -16,6 +24,7 @@
                         theme: "light2", // "light1", "light2", "dark1", "dark2"
                         exportEnabled: false,
                         animationEnabled: true,
+                        colorSet: "greenShades",
                         title: {
                             text: ""
                         },
@@ -43,6 +52,12 @@
     $.chart_pie_all = function(req){
         var pie = $.post('http://localhost:3000/businesspie',req);
         var line = $.post('http://localhost:3000/line_all',req);
+        CanvasJS.addColorSet("greenShades",
+            [//colorSet Array
+                "#63c2de",
+                "#f8cb00",
+                "#f86c6b"
+            ]);
         $.when(pie,line).done(function (pie,line) {
             //console.log(pie);
             //console.log(line);
@@ -57,6 +72,7 @@
                 theme: "light2", // "light1", "light2", "dark1", "dark2"
                 exportEnabled: false,
                 animationEnabled: true,
+                colorSet: "greenShades",
                 title: {
                     text: ""
                 },
@@ -133,9 +149,10 @@
                     type: "line",
                     showInLegend: true,
                     name: "在线经纪",
-                    markerType: "square",
+                    markerType: "circle",
+                    markerSize:6,
                     xValueFormatString: "DD MMM, YYYY",
-                    color: "#F08080",
+                    color: "#398fc7",
                     dataPoints: line1
                 },
                     {
@@ -143,6 +160,7 @@
                         showInLegend: true,
                         name: "网销",
                         lineDashType: "dash",
+                        markerSize:6,
                         color:"#19F02F",
                         dataPoints: line2
                     },
@@ -150,6 +168,7 @@
                         type: "line",
                         showInLegend: true,
                         name: '电销',
+                        markerSize:6,
                         lineDashType: "shortDash",
                         dataPoints: line3
                     }]
@@ -169,18 +188,60 @@
 })(jQuery);
 
 $(function () {
-    var start_date = '2018-04-10';
-    var end_date = '2018-04-25';
+    var dateList=datalist();
+    var endDateStr=dateList.split('/')[0];
+    var timeStr=dateList.split('/')[1];
+    console.log(dateList);
+    requestdata(endDateStr,timeStr);
+    $(".ui-datepicker-quick input").on("click",function(){
+        var thisAlt = $(this).attr("alt");
+        var startda=timeConfig(thisAlt).split('/')[0];
+        var y=startda.split('-')[0];
+        var d=startda.split('-')[2];
+        var m=startda.split('-')[1];
+        if(d<10){
+            d='0'+d;
+        }
+        if(m<10){
+            m='0'+m;
+        }
+        var endDateStr=y+'-'+m+'-'+d;
+        var endda=timeConfig(thisAlt).split('/')[1];
+        var yt=endda.split('-')[0];
+        var dt=endda.split('-')[2];
+        var mt=endda.split('-')[1];
+        if(dt<10){
+            dt='0'+dt;
+        }
+        if(mt<10){
+            mt='0'+mt;
+        }
+        var timeStr=yt+'-'+mt+'-'+dt;
+        $(".ui-datepicker-time").val(timeConfig(thisAlt));
+        $(".ui-datepicker-css").css("display","none");
+        $("#ui-datepicker-div").css("display","none");
+        requestdata(endDateStr,timeStr);
+    });
+
+});
+function datePickers(){
+    //自定义菜单
+    var startDate = $("#startDate").val();
+    var endDate = $("#endDate").val();
+    var dateList = startDate +'/'+ endDate;
+    $(".ui-datepicker-time").val(dateList);
+    $(".ui-datepicker-css").css("display","none");
+    requestdata(startDate,endDate);
+}
+function requestdata(start_date,end_date) {
     var request = {
         type:'province',
         start_date:start_date,
         end_date:end_date
     };
-
     var column_type = $.post('http://localhost:3000/subpie',request);
-    //console.log(column_type);
     $.when(column_type).done(function(column){
-        //console.log(column);
+        console.log(column);
         var column_num = column.length;
         var i = 0;
         var chart_tiny=[];
@@ -198,7 +259,12 @@ $(function () {
                 i=i+1;
                 $("h4#title"+i).html(province)
             }
-            //$("h4#title"+i).html(province)
+            var num=26-i;
+            if(num>column_num){
+                console.log(num);
+                var n='#tiny'+num;
+                $(n).parent('.tiny-column').hide();
+            }
         }
         var reqall = {
             start_date:start_date,
@@ -216,4 +282,4 @@ $(function () {
         //     $.chart(result,index+1)
         // });
     })
-});
+}

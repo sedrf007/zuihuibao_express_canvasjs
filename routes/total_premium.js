@@ -22,7 +22,7 @@ function getDateStr(dayCount){
     var m = dd.getMonth()+1;//获取当前月份的日期
     if(m<10)m="0"+m;
     var d = dd.getDate();
-    if(d<0)d="0"+d;
+    if(d<10)d="0"+d;
     return y+"-"+m+"-"+d;
 }
 

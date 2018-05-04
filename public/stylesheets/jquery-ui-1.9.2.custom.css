@@ -7,10 +7,10 @@
 .ui-datepicker-time{font-family:"微软雅黑"; width: 310px; height: 28px; line-height: 28px;padding-left:38px;  text-indent: 5px;background: url("overcast/images/xiala_jt01.png") white no-repeat;
 		border: 1px solid #cbcbcb;cursor: pointer;
     }
-    .ui-datepicker-css{display:none; position: absolute;z-index: 99999; background: #FFF; width: 300px;border:1px solid #ccc;
-		box-shadow: 0 0 3px 2px #e4e4e4;-moz-box-shadow: 0 0 3px 2px #e4e4e4;-webkit-box-shadow: 0 0 3px 2px #e4e4e4;
+    .ui-datepicker-css{display:none; position: absolute;z-index: 99999; background: #FFF; width: 300px;border:1px solid #3598dc;
+		box-shadow: 0 0 3px 2px #e4e4e4;-moz-box-shadow: 0 0 3px 2px #e4e4e4;-webkit-box-shadow: 0 0 3px 2px #e4e4e4;border-radius: 4px;-webkit-border-radius: 4px;-moz-border-radius: 4px;
     }
-    .ui-datepicker-quick p{ line-height: 30px; background:rgba(0,0,0,.05);font-size: 14px; text-indent: 10px;	padding:0; margin:0 0 10px 0;color: #72777a;
+    .ui-datepicker-quick p{ line-height: 30px; background:#398fc7;font-size: 14px; text-indent: 10px;	padding:0; margin:0 0 10px 0;color: #fff;
     }
     .ui-datepicker-quick p .ui-close-date{
         /*background: url("images/stop_d.png") no-repeat;*/
@@ -20,6 +20,7 @@
 		height:22px;
 		width:22px;
 		background:none;
+		color: #fff;
 		padding:0;
 		margin:4px;
 		text-indent: 0px;
@@ -27,15 +28,15 @@
 		line-height:22px;
 		cursor:pointer;
     }
-	.ui-datepicker-quick p .ui-close-date:hover{background:#f0f0f0;}
     .ui-datepicker-choose{
         margin-top: 20px;
 		background:#f8f8f8;
+		border-radius: 4px;-webkit-border-radius: 4px;-moz-border-radius: 4px;
     }
 	.ui-datepicker-choose p{
 		line-height: 30px;
-        background: #e7e7e7;
-        color: #999;
+        background: #398fc7;
+        color: #fff;
         font-size: 14px;
         text-indent: 10px;
 		padding:0; margin:0 0 10px 0;
@@ -44,12 +45,13 @@
     .ui-datepicker-date{
         height: 50px;
         text-align: center;
+
     }
     .ui-datepicker-date input{
-      
+      border: 1px solid #63c2de;
     }
-	.ui-date-quick-button{ cursor:pointer; width:24%; margin:6px 3%; height:30px;border:1px solid #72777a; background:none;font-size: 13px;color: #72777a;border-radius: 50px;-moz-border-radius: 50px;-webkit-border-radius: 50px}
-	.ui-date-quick-button:hover{ background:#f0f0f0;}
+	.ui-date-quick-button{ cursor:pointer; width:24%; margin:6px 3%; height:30px;border:1px solid #63c2de; background:none;font-size: 13px;color: #72777a;border-radius: 50px;-moz-border-radius: 50px;-webkit-border-radius: 50px;}
+
 	.startDate,.endDate{ border:1px solid #ccc;  height: 25px;
         width: 40%;
         text-align: center;}
@@ -313,7 +315,14 @@ body .ui-tooltip { border-width: 2px; }
 
 /* Icons
 ----------------------------------*/
-
+.ui-icon { width: 16px; height: 16px; background-image: url(overcast/images/ui-icons_222222_256x240.png); }
+.ui-widget-content .ui-icon {background-image: url(overcast/images/ui-icons_222222_256x240.png); }
+.ui-widget-header .ui-icon {background-image: url(overcast/images/ui-icons_999999_256x240.png); }
+.ui-state-default .ui-icon { background-image: url(overcast/images/ui-icons_888888_256x240.png); }
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(overcast/images/ui-icons_454545_256x240.png); }
+.ui-state-active .ui-icon {background-image: url(overcast/images/ui-icons_454545_256x240.png); }
+.ui-state-highlight .ui-icon {background-image: url(overcast/images/ui-icons_2e83ff_256x240.png); }
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url(overcast/images/ui-icons_cd0a0a_256x240.png); }
 /* states and images */
 .ui-icon { width: 16px; height: 16px;}
 

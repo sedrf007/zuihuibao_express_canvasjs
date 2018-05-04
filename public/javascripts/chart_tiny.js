@@ -40,26 +40,22 @@
         });
     };
 
-    $.chartcolumn = function () {
+    $.chartcolumn = function (start_date,end_date) {
         var url1 = 'http://localhost:3000/pie';
         var url2 = 'http://localhost:3000/column';
         var request_column= {
-            start_date:'2018-04-15',
-            end_date:'2018-04-25'
-        };
-        var request_line={
-            start_date:'2018-04-15',
-            end_date:'2018-04-25'
+            start_date:start_date,
+            end_date:end_date
         };
         var data1,data2;
         var postpie = $.post(url1);
         var postcolumn = $.post(url2,request_column);
         var index_data = $.post('http://localhost:3000/index_total');
-        var line = $.post('http://localhost:3000/line',request_line);
+        var line = $.post('http://localhost:3000/line',request_column);
         var index_total = $.post('http://localhost:3000/index_total');
 
         $.when(postpie,postcolumn,index_data,line,index_total).done(function (pie,column,index_data,line,index_total) {
-            console.log(index_total[0][0][0]['money']);
+           // console.log(index_total[0][0][0]['money']);
             var yes_money = "昨日保费：¥"+(index_total[0][0][0]['money']/10000).toFixed(2)+'万';
             var month_money = "当月保费：¥"+(index_total[0][1][0]['money']/100000000).toFixed(2)+'亿';
             var year_money = "年度保费：¥"+(index_total[0][2][0]['money']/100000000).toFixed(2)+'亿';
@@ -221,27 +217,68 @@
 })(jQuery);
 
 
-
-
 $(function () {
-    //console.log(11111);
-    var start_date = '2018-04-15';
-    var end_date = '2018-04-25';
+    var dateList=datalist();
+    var endDateStr=dateList.split('/')[0];
+    var timeStr=dateList.split('/')[1];
+    requestdata(endDateStr,timeStr);
+    $(".ui-datepicker-quick input").on("click",function(){
+        var thisAlt = $(this).attr("alt");
+        var startda=timeConfig(thisAlt).split('/')[0];
+        var y=startda.split('-')[0];
+        var d=startda.split('-')[2];
+        var m=startda.split('-')[1];
+        if(d<10){
+            d='0'+d;
+        }
+        if(m<10){
+            m='0'+m;
+        }
+        var endDateStr=y+'-'+m+'-'+d;
+        var endda=timeConfig(thisAlt).split('/')[1];
+        var yt=endda.split('-')[0];
+        var dt=endda.split('-')[2];
+        var mt=endda.split('-')[1];
+        if(dt<10){
+            dt='0'+dt;
+        }
+        if(mt<10){
+            mt='0'+mt;
+        }
+        var timeStr=yt+'-'+mt+'-'+dt;
+        $(".ui-datepicker-time").val(timeConfig(thisAlt));
+        $(".ui-datepicker-css").css("display","none");
+        $("#ui-datepicker-div").css("display","none");
+        requestdata(endDateStr,timeStr);
+    });
+
+});
+function datePickers(){
+    //自定义菜单
+    var startDate = $("#startDate").val();
+    var endDate = $("#endDate").val();
+    var dateList = startDate +'/'+ endDate;
+    $(".ui-datepicker-time").val(dateList);
+    $(".ui-datepicker-css").css("display","none");
+    requestdata(startDate,endDate);
+}
+function requestdata(start_date,end_date){
     var request = {
         type:'province',
         start_date:start_date,
         end_date:end_date
     };
-
     var column_type = $.post('http://localhost:3000/subline',request);
     //console.log(column_type);
+    //ShowLoading('加载中');
     $.when(column_type).done(function(column){
         //console.log(column);
+        //HideLoading();
         var column_num = column.length;
         var i = 0;
         var chart_tiny=[];
         while(i<column_num){
-            console.log(column[i]);
+            // console.log(column[i]);
             var province = column[i].province;
             var req = {
                 type:'province',
@@ -255,18 +292,8 @@ $(function () {
             $("h4#title"+i).html(province)
             //$("h4#title"+i).html(province)
         }
-        Promise.all(chart_tiny).then($.chartcolumn())
-
-        // column.forEach(function (value,index) {
-        //     var result = {
-        //         type:'province',
-        //         start_date:start_date,
-        //         end_date:end_date,
-        //         value:value.province
-        //     };
-        //     $.chart(result,index+1)
-        // });
+        Promise.all(chart_tiny).then($.chartcolumn(start_date,end_date))
     })
-});
+}
 
 

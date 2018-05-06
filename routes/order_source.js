@@ -27,12 +27,16 @@ function getDateStr(dayCount){
 router.post('/line_all',function (req,res) {
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
-    var type = req.body.type;
-    var value = req.body.value;
+    var province = req.body.province;
 
     var sql1 = "select sum(premium) as money,'在线经纪' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=2 group by date order by date asc";
     var sql2 = "select sum(premium) as money,'网销' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=0 group by date order by date asc";
     var sql3 = "select sum(premium) as money,'电销' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=5 group by date order by date asc";
+    if(province!=null){
+        sql1 = "select sum(premium) as money,'在线经纪' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=2 and province='"+province+"' group by date order by date asc";
+        sql2 = "select sum(premium) as money,'网销' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=0 and province='"+province+"' group by date order by date asc";
+        sql3 = "select sum(premium) as money,'电销' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=5 province='"+province+"' group by date order by date asc";
+    }
 
     var sql = sql1+';'+sql2+';'+sql3;
     pool.getConnection(function(err,connection){
@@ -99,8 +103,12 @@ router.post('/subpie',function (req,res) {
     var type = req.body.type;
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
+    var province = req.body.province;
 
     var sql = "select sum(premium) as money,"+type+" from premium_order_source where date>'"+start_date+"' and date<'"+end_date+"' group by "+type+" order by money desc";
+    if(province!=null){
+        sql = "select sum(premium) as money,"+type+" from premium_order_source where date>'"+start_date+"' and date<'"+end_date+"' and province='"+province+"' group by "+type+" order by money desc";
+    }
 
     pool.getConnection(function(err,connection){
         connection.query(sql,function(err,rows){

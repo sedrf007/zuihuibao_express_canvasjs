@@ -27,13 +27,18 @@ function getDateStr(dayCount){
 router.post('/product_line',function (req,res) {
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
-    var type = req.body.type;
-    var value = req.body.value;
+    var province = req.body.province;
 
     var sql1 = "select sum(premium) as money,'sync' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='sync' group by date order by date asc";
     var sql2 = "select sum(premium) as money,'app' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='app' group by date order by date asc";
     var sql3 = "select sum(premium) as money,'pc' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='pc' group by date order by date asc";
     var sql4 = "select sum(premium) as money,'weixin' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='weixin' group by date order by date asc";
+    if(province!=null){
+        sql1 = "select sum(premium) as money,'sync' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='sync' and province='"+province+"' group by date order by date asc";
+        sql2 = "select sum(premium) as money,'app' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='app' and province='"+province+"' group by date order by date asc";
+        sql3 = "select sum(premium) as money,'pc' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='pc' and province='"+province+"' group by date order by date asc";
+        sql4 = "select sum(premium) as money,'weixin' as product_source,date from premium_product where date>='"+start_date+"' and date<='"+end_date+"' and product_source='weixin' and province='"+province+"' group by date order by date asc";
+    }
 
     var sql = sql1+';'+sql2+';'+sql3+';'+sql4;
     pool.getConnection(function(err,connection){
@@ -90,8 +95,12 @@ router.post('/subproduct',function (req,res) {
     var type = req.body.type;
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
+    var province = req.body.province;
 
     var sql = "select sum(premium) as money,"+type+" from premium_product where date>'"+start_date+"' and date<'"+end_date+"' group by "+type+" order by money desc";
+    if(province!=null){
+        sql = "select sum(premium) as money,"+type+" from premium_product where date>'"+start_date+"' and date<'"+end_date+"' and province='"+province+"' group by "+type+" order by money desc";
+    }
 
     pool.getConnection(function(err,connection){
         connection.query(sql,function(err,rows){

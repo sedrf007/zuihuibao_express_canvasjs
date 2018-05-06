@@ -29,8 +29,13 @@ function getDateStr(dayCount){
 router.post('/total_premium', function(req, res, next) {
     var date1 = req.body.start_date;
     var date2 = req.body.end_date;
+    var province = req.body.province;
     pool.getConnection(function (err, connection) {
-        connection.query("SELECT premium as money,date from premium_provider where provider='agent' and date>'"+date1+"' and date<'"+date2+"' order by date asc", function (err, rows, fields) {
+        var sql = "SELECT premium as money,date from premium_provider where provider='agent' and date>'"+date1+"' and date<'"+date2+"' order by date asc";
+        if(province!=null){
+            sql = "SELECT premium as money,date from premium_provider where provider='agent' and date>'"+date1+"' and date<'"+date2+"' and province='"+province+"' order by date asc"
+        }
+        connection.query(sql, function (err, rows, fields) {
             //if (err) throw err;
             //console.log(rows[0]);
             // Object.keys(rows).forEach(function(key) {
@@ -49,6 +54,7 @@ router.post('/total_premium', function(req, res, next) {
 router.post('/pie',function(req,res,next){
     var date1 = req.body.start_date;
     var date2 = req.body.end_date;
+    var province = req.body.province;
     var ins_list = [
         'RENBAO',
         'TAIPINGYANG',
@@ -59,7 +65,11 @@ router.post('/pie',function(req,res,next){
     var premium = [];
 
     pool.getConnection(function (err, connection) {
-        connection.query("SELECT sum(premium) as money,insurance_company from premium_all where date>'"+date1+"' and date<'"+date2+"' group by insurance_company order by money desc", function (err, rows, fields) {
+        var sql = "SELECT sum(premium) as money,insurance_company from premium_all where date>'"+date1+"' and date<'"+date2+"' group by insurance_company order by money desc";
+        if(province!=null){
+            sql = "SELECT sum(premium) as money,insurance_company from premium_all where date>'"+date1+"' and date<'"+date2+"' and province='"+province+"' group by insurance_company order by money desc";
+        }
+        connection.query(sql, function (err, rows, fields) {
             console.log(rows);
             rows.forEach(function(element,index){
                 premium_all = premium_all+parseInt(element.money);
@@ -94,11 +104,14 @@ router.post('/pie',function(req,res,next){
 router.post('/column',function (req,res,next) {
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
-    console.log(start_date);
-    console.log(end_date);
+    var province = req.body.province;
+    var sql = "select sum(premium) as money,province from premium_all where date>='"+start_date+"' and date<='"+end_date+"' group by province order by money desc";
+    if(province!=null){
+        sql = "select sum(premium) as money,province from premium_all where date>='"+start_date+"' and date<='"+end_date+"' and province='"+province+"' group by province order by money desc";
+    }
 
     pool.getConnection(function(err,connection){
-        connection.query("select sum(premium) as money,province from premium_all where date>='"+start_date+"' and date<='"+end_date+"' group by province order by money desc",function(err,rows){
+        connection.query(sql,function(err,rows){
             //console.log(rows);
             res.json(rows);
             connection.release();
@@ -121,7 +134,12 @@ router.post('/index_total',function (req,res) {
     var yes = getDateStr(-1);
     var month = y+"-"+m+"-01";
     var year = y+"-01-01";
-
+    var province = req.body.province;
+    if(province!=null){
+        sql1 = sql1+" and province="+province;
+        sql2 = sql2+" and province="+province;
+        sql3 = sql3+" and province="+province;
+    }
     // var sql1 = "select sum(premium) as money from premium_all where date>'"+yes+"' and date<'"+today+"'";
     // var sql2 = "select sum(premium) as money from premium_all where date>'"+month+"' and date<'"+today+"'";
     // var sql3 = "select sum(premium) as money from premium_all where date>'"+year+"' and date<'"+today+"'";
@@ -142,7 +160,11 @@ router.post('/index_total',function (req,res) {
 router.post('/line',function (req,res) {
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
+    var province = req.body.province;
     var sql = "select sum(premium) as money,date from premium_all where date>'"+start_date+"' and date<'"+end_date+"' group by date order by date asc";
+    if(province!=null){
+        sql = "select sum(premium) as money,date from premium_all where date>'"+start_date+"' and date<'"+end_date+"' and province='"+province+"' group by date order by date asc";
+    }
 
     pool.getConnection(function(err,connection){
         connection.query(sql,function(err,rows){
@@ -158,7 +180,7 @@ router.post('/tiny_column',function (req,res) {
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
     var sql = "select sum(premium) as money,date from premium_all where date>'"+start_date+"' and date<'"+end_date+"' and "+type+" ='"+value+"' group by date order by date asc";
-    console.log(sql)
+
     pool.getConnection(function(err,connection){
         connection.query(sql,function(err,rows){
             console.log(rows);
@@ -172,8 +194,13 @@ router.post('/subline',function (req,res) {
     var type = req.body.type;
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
+    var province = req.body.province;
 
     var sql = "select sum(premium) as money,"+type+" from premium_all where date>'"+start_date+"' and date<'"+end_date+"' group by "+type+" order by money desc";
+
+    if(province!=null){
+        sql = "select sum(premium) as money,"+type+" from premium_all where date>'"+start_date+"' and date<'"+end_date+"'and province='"+province+"' group by "+type+" order by money desc";
+    }
 
     pool.getConnection(function(err,connection){
         connection.query(sql,function(err,rows){

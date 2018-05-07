@@ -32,12 +32,8 @@ function requestdata(start_date,end_date) {
                 i=i+1;
                 $("h4#title"+i).html(province)
             }
-            var num=26-i;
-            if(num>column_num){
-                console.log(num);
-                var n='#product'+num;
-                $(n).parent('.tiny-column').hide();
-            }
+            var name='#product'+i;
+            $(name).parent('.tiny-column').show();
         }
         Promise.all(chart_tiny).then(product_data(time));
     })

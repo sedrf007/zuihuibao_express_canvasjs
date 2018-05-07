@@ -16,7 +16,7 @@
                     data.forEach(function (value) {
                         pie.push({
                             y:value.percentage,
-                            x:value.order_source
+                            label:value.order_source
                         })
                     });
                     chartname = 'tiny'+chartname;
@@ -36,8 +36,8 @@
                             toolTipContent: "<b>{label}</b>: {y}%",
                             showInLegend: "true",
                             legendText: "{label}",
-                            indexLabelFontSize: 16,
-                            indexLabel: "{label} - {y}%",
+                            indexLabelFontSize: 10,
+                            indexLabel: "{label}{y}%",
                             dataPoints: pie
                         }]
                     });
@@ -83,8 +83,8 @@
                     toolTipContent: "<b>{label}</b>: {y}%",
                     showInLegend: "true",
                     legendText: "{label}",
-                    indexLabelFontSize: 16,
-                    indexLabel: "{label} - {y}%",
+                    indexLabelFontSize: 12,
+                    indexLabel: "{label}{y}%",
                     dataPoints: pie_all
                 }]
             });
@@ -211,12 +211,8 @@ function requestdata(start_date,end_date) {
                 i=i+1;
                 $("h4#title"+i).html(province)
             }
-            var num=26-i;
-            if(num>column_num){
-                console.log(num);
-                var n='#tiny'+num;
-                $(n).parent('.tiny-column').hide();
-            }
+            var name='#tiny'+i;
+            $(name).parent('.tiny-column').show();
         }
         var reqall = {
             start_date:start_date,

@@ -1,10 +1,4 @@
-$(function () {
-    $(".tiny-column h4").click(function () {
-        console.log($(this).html());
-        JumpUrl('province_all?province='+$(this).html());
-    });
 
-});
 (function ($) {
     $.chart = function(req,chartname){
         return new Promise(function(resolve,reject){
@@ -59,9 +53,9 @@ $(function () {
 
         $.when(postpie,postcolumn,index_data,line,index_total).done(function (pie,column,index_data,line,index_total) {
            // console.log(index_total[0][0][0]['money']);
-            var yes_money = "昨日保费：¥"+(index_total[0][0][0]['money']/10000).toFixed(2)+'万';
-            var month_money = "当月保费：¥"+(index_total[0][1][0]['money']/100000000).toFixed(2)+'亿';
-            var year_money = "年度保费：¥"+(index_total[0][2][0]['money']/100000000).toFixed(2)+'亿';
+            var yes_money = "¥"+(index_total[0][0][0]['money']/10000).toFixed(2)+'万';
+            var month_money = "¥"+(index_total[0][1][0]['money']/100000000).toFixed(2)+'亿';
+            var year_money = "¥"+(index_total[0][2][0]['money']/100000000).toFixed(2)+'亿';
 
             $('#yes_money').html(yes_money);
             $('#month_money').html(month_money);
@@ -92,8 +86,8 @@ $(function () {
                     toolTipContent: "<b>{label}</b>: {y}%",
                     showInLegend: "true",
                     legendText: "{label}",
-                    indexLabelFontSize: 16,
-                    indexLabel: "{label} - {y}%",
+                    indexLabelFontSize: 12,
+                    indexLabel: "{label}{y}%",
                     dataPoints: [
                         { y: data1[0].percentage, label: data1[0].insurance_company },
                         { y: data1[1].percentage, label: data1[1].insurance_company },
@@ -216,7 +210,8 @@ function requestdata(m,n){
             chart_tiny.push(a);
             i=i+1;
             $("h4#title"+i).html(province);
-            //$("h4#title"+i).html(province)
+            var name='#tiny'+i;
+            $(name).parent('.tiny-column').show();
         }
         var reqall = {
             start_date:m,

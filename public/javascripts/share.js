@@ -12,6 +12,10 @@
     $('.actions-btn li').click(function(){
         $(this).addClass('active').siblings().removeClass('active')
     });
+    $(".tiny-column h4").click(function () {
+        console.log($(this).html());
+        JumpUrl('province_all?province='+$(this).html());
+    });
     $('.canvasjs-chart-credit').hide();
     var dateList=datalist();
     var endDateStr=dateList.split('/')[0];
@@ -157,17 +161,13 @@ function datePickers(){
 function JumpUrl(url) {
     window.location.href=url;
 }
-function GetUrlPara(str) {
-    if (window.location.search.split('?').length==1)
-        return '';
-    var arr = window.location.search.split('?')[1].split('&');
-    var hash = {};
-    for (var i=0; i<arr.length; ++i)
-    {
-        hash[arr[i].split('=')[0]]=arr[i].split('=')[1];
+//获取url上某个参数的值--002
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+        return decodeURIComponent(r[2]);
     }
-    if (hash[str])
-        return hash[str];
-    else
-        return '';
+
+    return '';
 }

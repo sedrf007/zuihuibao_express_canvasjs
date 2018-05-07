@@ -48,7 +48,6 @@
             })
         });
     };
-
     $.chart_pie_all = function(req){
         var pie = $.post('http://localhost:3000/businesspie',req);
         var line = $.post('http://localhost:3000/line_all',req);
@@ -186,53 +185,6 @@
         })
     };
 })(jQuery);
-
-$(function () {
-    var dateList=datalist();
-    var endDateStr=dateList.split('/')[0];
-    var timeStr=dateList.split('/')[1];
-    console.log(dateList);
-    requestdata(endDateStr,timeStr);
-    $(".ui-datepicker-quick input").on("click",function(){
-        var thisAlt = $(this).attr("alt");
-        var startda=timeConfig(thisAlt).split('/')[0];
-        var y=startda.split('-')[0];
-        var d=startda.split('-')[2];
-        var m=startda.split('-')[1];
-        if(d<10){
-            d='0'+d;
-        }
-        if(m<10){
-            m='0'+m;
-        }
-        var endDateStr=y+'-'+m+'-'+d;
-        var endda=timeConfig(thisAlt).split('/')[1];
-        var yt=endda.split('-')[0];
-        var dt=endda.split('-')[2];
-        var mt=endda.split('-')[1];
-        if(dt<10){
-            dt='0'+dt;
-        }
-        if(mt<10){
-            mt='0'+mt;
-        }
-        var timeStr=yt+'-'+mt+'-'+dt;
-        $(".ui-datepicker-time").val(timeConfig(thisAlt));
-        $(".ui-datepicker-css").css("display","none");
-        $("#ui-datepicker-div").css("display","none");
-        requestdata(endDateStr,timeStr);
-    });
-
-});
-function datePickers(){
-    //自定义菜单
-    var startDate = $("#startDate").val();
-    var endDate = $("#endDate").val();
-    var dateList = startDate +'/'+ endDate;
-    $(".ui-datepicker-time").val(dateList);
-    $(".ui-datepicker-css").css("display","none");
-    requestdata(startDate,endDate);
-}
 function requestdata(start_date,end_date) {
     var request = {
         type:'province',
@@ -271,15 +223,5 @@ function requestdata(start_date,end_date) {
             end_date:end_date
         };
         Promise.all(chart_tiny).then($.chart_pie_all(reqall))
-
-        // column.forEach(function (value,index) {
-        //     var result = {
-        //         type:'province',
-        //         start_date:start_date,
-        //         end_date:end_date,
-        //         value:value.province
-        //     };
-        //     $.chart(result,index+1)
-        // });
     })
 }

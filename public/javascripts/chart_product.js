@@ -1,53 +1,7 @@
 /**
  * Created by zlf on 2018/5/3.
  */
-$(function () {
-    $('.actions-btn li').click(function(){
-        $(this).addClass('active').siblings().removeClass('active')
-    });
-    var dateList=datalist();
-    var endDateStr=dateList.split('/')[0];
-    var timeStr=dateList.split('/')[1];
-    requestdata(endDateStr,timeStr);
-    $(".ui-datepicker-quick input").on("click",function(){
-        var thisAlt = $(this).attr("alt");
-        var startda=timeConfig(thisAlt).split('/')[0];
-        var y=startda.split('-')[0];
-        var d=startda.split('-')[2];
-        var m=startda.split('-')[1];
-        if(d<10){
-            d='0'+d;
-        }
-        if(m<10){
-            m='0'+m;
-        }
-        var endDateStr=y+'-'+m+'-'+d;
-        var endda=timeConfig(thisAlt).split('/')[1];
-        var yt=endda.split('-')[0];
-        var dt=endda.split('-')[2];
-        var mt=endda.split('-')[1];
-        if(dt<10){
-            dt='0'+dt;
-        }
-        if(mt<10){
-            mt='0'+mt;
-        }
-        var timeStr=yt+'-'+mt+'-'+dt;
-        $(".ui-datepicker-time").val(timeConfig(thisAlt));
-        $(".ui-datepicker-css").css("display","none");
-        $("#ui-datepicker-div").css("display","none");
-        requestdata(endDateStr,timeStr);
-    });
-});
-function datePickers(){
-    //自定义菜单
-    var startDate = $("#startDate").val();
-    var endDate = $("#endDate").val();
-    var dateList = startDate +'/'+ endDate;
-    $(".ui-datepicker-time").val(dateList);
-    $(".ui-datepicker-css").css("display","none");
-    requestdata(startDate,endDate);
-}
+
 function requestdata(start_date,end_date) {
     var time={
         start_date:start_date,
@@ -88,9 +42,6 @@ function requestdata(start_date,end_date) {
         Promise.all(chart_tiny).then(product_data(time));
     })
 }
-
-
-
 
 //接口获得数据(各产品保费趋势，产品占比)
 function product_data(time) {

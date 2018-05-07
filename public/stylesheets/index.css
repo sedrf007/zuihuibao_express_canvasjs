@@ -176,6 +176,9 @@ body{
 .am-titlebar-default{
     margin-left: 0;
 }
+.actions-btn{
+    display: none;
+}
 .actions-btn li {
     display: inline-block;
     padding: 4px 14px;
@@ -348,6 +351,8 @@ body{
 .chart_box h4{
     text-align: center;
     margin-bottom : 0;
+    font-size: 14px;
+    font-family: "FontAwesome", sans-serif;
 }
 
 .tiny-column{
@@ -356,4 +361,13 @@ body{
 
 .main-chart{
     height:600px;
+}
+
+
+
+/*二级样式*/
+.header{
+    background-color: #fff;
+    height: 50px;
+    overflow: hidden;
 }

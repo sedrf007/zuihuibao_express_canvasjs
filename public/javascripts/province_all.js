@@ -67,6 +67,14 @@ function chartcolumn(req) {
         $('#month_money').html(month_money);
         $('#year_money').html(year_money);
         data1=pie[0];
+        pie_data=[];
+        pie[0].forEach(function(pie){
+            pie_data.push({
+                y:pie.percentage,
+                label:pie.insurance_company
+            })
+        });
+
         data2 = column[0];
         var total_line = [];
         line[0].forEach(function (value) {
@@ -94,13 +102,7 @@ function chartcolumn(req) {
                 legendText: "{label}",
                 indexLabelFontSize: 12,
                 indexLabel: "{label}{y}%",
-                dataPoints: [
-                    { y: data1[0].percentage, label: data1[0].insurance_company },
-                    { y: data1[1].percentage, label: data1[1].insurance_company },
-                    { y: data1[2].percentage, label: data1[2].insurance_company },
-                    { y: data1[3].percentage, label: data1[3].insurance_company },
-                    { y: data1[4].percentage, label: data1[4].insurance_company }
-                ]
+                dataPoints: pie_data
             }]
         });
         var premium=[];

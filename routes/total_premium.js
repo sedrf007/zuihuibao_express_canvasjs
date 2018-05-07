@@ -88,11 +88,10 @@ router.post('/pie',function(req,res,next){
             per_other = per_other/premium_all*100;
             //console.log(per_other);
             per_other = per_other.toFixed(2);
-
-            premium[4] = {
+            premium.push({
                 insurance_company : 'OTHER',
                 percentage : per_other
-            };
+            });
             //console.log(premium);
             //if (err) throw err;
             res.json(premium);

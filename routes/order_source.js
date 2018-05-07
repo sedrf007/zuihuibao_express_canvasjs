@@ -27,7 +27,7 @@ function getDateStr(dayCount){
 router.post('/line_all',function (req,res) {
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
-    var province = req.body.province;
+    var province = req.body.province;//new
 
     var sql1 = "select sum(premium) as money,'在线经纪' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=2 group by date order by date asc";
     var sql2 = "select sum(premium) as money,'网销' as order_source,date from premium_order_source where date>='"+start_date+"' and date<='"+end_date+"' and order_source=0 group by date order by date asc";
@@ -52,8 +52,8 @@ router.post('/line_all',function (req,res) {
 router.post('/businesspie',function (req,res) {
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
-    var type = req.body.type;
-    var value = req.body.value;
+    var type = req.body.type;//new ie. city
+    var value = req.body.value;//new ie. 宁波
     var ins_list = [
         '网销',
         '未知',
@@ -100,10 +100,10 @@ router.post('/businesspie',function (req,res) {
 });
 
 router.post('/subpie',function (req,res) {
-    var type = req.body.type;
+    var type = req.body.type;//new ie. city
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
-    var province = req.body.province;
+    var province = req.body.province;//new
 
     var sql = "select sum(premium) as money,"+type+" from premium_order_source where date>'"+start_date+"' and date<'"+end_date+"' group by "+type+" order by money desc";
     if(province!=null){

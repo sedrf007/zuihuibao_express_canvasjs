@@ -29,7 +29,7 @@ function getDateStr(dayCount){
 router.post('/total_premium', function(req, res, next) {
     var date1 = req.body.start_date;
     var date2 = req.body.end_date;
-    var province = req.body.province;
+    var province = req.body.province;//new
     pool.getConnection(function (err, connection) {
         var sql = "SELECT premium as money,date from premium_provider where provider='agent' and date>'"+date1+"' and date<'"+date2+"' order by date asc";
         if(province!=null){
@@ -54,7 +54,7 @@ router.post('/total_premium', function(req, res, next) {
 router.post('/pie',function(req,res,next){
     var date1 = req.body.start_date;
     var date2 = req.body.end_date;
-    var province = req.body.province;
+    var province = req.body.province;//new
     var ins_list = [
         'RENBAO',
         'TAIPINGYANG',
@@ -104,7 +104,7 @@ router.post('/pie',function(req,res,next){
 router.post('/column',function (req,res,next) {
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
-    var province = req.body.province;
+    var province = req.body.province;//new
     var sql = "select sum(premium) as money,province from premium_all where date>='"+start_date+"' and date<='"+end_date+"' group by province order by money desc";
     if(province!=null){
         sql = "select sum(premium) as money,province from premium_all where date>='"+start_date+"' and date<='"+end_date+"' and province='"+province+"' group by province order by money desc";
@@ -134,7 +134,7 @@ router.post('/index_total',function (req,res) {
     var yes = getDateStr(-1);
     var month = y+"-"+m+"-01";
     var year = y+"-01-01";
-    var province = req.body.province;
+    var province = req.body.province;//new
     if(province!=null){
         sql1 = sql1+" and province="+province;
         sql2 = sql2+" and province="+province;
@@ -160,7 +160,7 @@ router.post('/index_total',function (req,res) {
 router.post('/line',function (req,res) {
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
-    var province = req.body.province;
+    var province = req.body.province;//new
     var sql = "select sum(premium) as money,date from premium_all where date>'"+start_date+"' and date<'"+end_date+"' group by date order by date asc";
     if(province!=null){
         sql = "select sum(premium) as money,date from premium_all where date>'"+start_date+"' and date<'"+end_date+"' and province='"+province+"' group by date order by date asc";
@@ -175,8 +175,8 @@ router.post('/line',function (req,res) {
 });
 
 router.post('/tiny_column',function (req,res) {
-    var type = req.body.type;
-    var value = req.body.value;
+    var type = req.body.type;//new ie. city
+    var value = req.body.value;//new ie. 宁波
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
     var sql = "select sum(premium) as money,date from premium_all where date>'"+start_date+"' and date<'"+end_date+"' and "+type+" ='"+value+"' group by date order by date asc";
@@ -191,10 +191,10 @@ router.post('/tiny_column',function (req,res) {
 });
 
 router.post('/subline',function (req,res) {
-    var type = req.body.type;
+    var type = req.body.type;//new ie. city
     var start_date = req.body.start_date;
     var end_date = req.body.end_date;
-    var province = req.body.province;
+    var province = req.body.province;//new
 
     var sql = "select sum(premium) as money,"+type+" from premium_all where date>'"+start_date+"' and date<'"+end_date+"' group by "+type+" order by money desc";
 

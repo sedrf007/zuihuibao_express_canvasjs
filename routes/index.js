@@ -68,4 +68,44 @@ router.get('/product', function(req, res, next) {
     res.sendFile('product.html',options);
 });
 
+router.get('/province_all', function(req, res, next) {
+    var options = {
+        root: __dirname + '/html/',
+        dotfiles: 'deny',
+        headers: {
+            'x-timestamp': Date.now(),
+            'x-sent': true
+        }
+    };
+    res.sendFile('province_all.html',options);
+});
+
+router.get('/province_ordersource', function(req, res, next) {
+    var options = {
+        root: __dirname + '/html/',
+        dotfiles: 'deny',
+        headers: {
+            'x-timestamp': Date.now(),
+            'x-sent': true
+        }
+    };
+    res.sendFile('province_ordersource.html',options);
+});
+
+
+router.get('/province_ordersource', function(req, res, next) {
+    var options = {
+        root: __dirname + '/html/',
+        dotfiles: 'deny',
+        headers: {
+            'x-timestamp': Date.now(),
+            'x-sent': true
+        }
+    };
+    res.sendFile('province_ordersource.html',options);
+});
+
+
+
+
 module.exports = router;

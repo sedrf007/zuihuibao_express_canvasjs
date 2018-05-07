@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd48a0df-9b30-465c-85a2-681c4701bfb2" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/province_all.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/html/provincial.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/chart_business.js" afterPath="$PROJECT_DIR$/public/javascripts/chart_business.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/chart_product.js" afterPath="$PROJECT_DIR$/public/javascripts/chart_product.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/chart_tiny.js" afterPath="$PROJECT_DIR$/public/javascripts/chart_tiny.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/share.js" afterPath="$PROJECT_DIR$/public/javascripts/share.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/index.css" afterPath="$PROJECT_DIR$/public/stylesheets/index.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/html/business_type.html" afterPath="$PROJECT_DIR$/routes/html/business_type.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/html/index.html" afterPath="$PROJECT_DIR$/routes/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/html/product.html" afterPath="$PROJECT_DIR$/routes/html/product.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/html/province_all.html" afterPath="$PROJECT_DIR$/routes/html/province_all.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,102 +17,25 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="province_all.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/province_all.js">
+      <file leaf-file-name="chart_business.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/chart_business.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="187" column="20" lean-forward="false" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="20" />
               <folding>
-                <element signature="e#0#38#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="province_all.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/html/province_all.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="40" column="87" lean-forward="false" selection-start-line="40" selection-start-column="79" selection-end-line="40" selection-end-column="87" />
-              <folding>
-                <element signature="n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#div#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#4;n#div#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#5;n#div#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#24;n#div#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#25;n#div#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="share.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/share.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-              <folding>
-                <element signature="e#636#1501#0" expanded="false" />
-                <element signature="n#!!block;n#setStartTime#0" expanded="false" />
-                <element signature="n#!!block;n#setEndTime#0" expanded="false" />
-                <element signature="e#2309#2329#0" expanded="false" />
-                <element signature="n#!!block;n#datepickerjQ#0" expanded="false" />
-                <element signature="n#!!block;n#timeConfig#0" expanded="false" />
-                <element signature="n#!!block;n#datalist#0" expanded="false" />
-                <element signature="n#!!block;n#datePickers#0" expanded="false" />
-                <element signature="n#!!block;n#JumpUrl#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chart_tiny.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/chart_tiny.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="57" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="57" />
-              <folding>
-                <element signature="e#222#1666#0" expanded="false" />
-                <element signature="e#1703#7079#0" expanded="false" />
-                <element signature="e#5664#6946#0" expanded="false" />
+                <element signature="e#59#1925#0" expanded="false" />
+                <element signature="e#1962#6815#0" expanded="false" />
                 <element signature="n#!!block;n#requestdata#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/html/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#24;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#25;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/html/product.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="business_type.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="business_type.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/html/business_type.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+            <state relative-caret-position="386">
+              <caret line="212" column="32" lean-forward="true" selection-start-line="212" selection-start-column="32" selection-end-line="212" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -168,9 +80,9 @@
       <find>startDate</find>
       <find>setStartTime</find>
       <find>datalist</find>
-      <find>requestdata</find>
       <find>datePickers</find>
       <find>date</find>
+      <find>requestdata</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -190,8 +102,8 @@
         <option value="$PROJECT_DIR$/routes/html/province_all.html" />
         <option value="$PROJECT_DIR$/routes/html/index.html" />
         <option value="$PROJECT_DIR$/routes/html/product.html" />
-        <option value="$PROJECT_DIR$/routes/html/business_type.html" />
         <option value="$PROJECT_DIR$/public/javascripts/share.js" />
+        <option value="$PROJECT_DIR$/routes/html/business_type.html" />
       </list>
     </option>
   </component>
@@ -456,12 +368,12 @@
       <workItem from="1525250717618" duration="1091000" />
       <workItem from="1525251842225" duration="18113000" />
       <workItem from="1525331327907" duration="31635000" />
-      <workItem from="1525657694949" duration="6787000" />
+      <workItem from="1525657694949" duration="7899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73952000" />
+    <option name="totallyTimeSpent" value="75064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -744,18 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/chart_business.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="49" column="6" lean-forward="false" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
-          <folding>
-            <element signature="e#59#1925#0" expanded="false" />
-            <element signature="e#1962#6815#0" expanded="false" />
-            <element signature="n#!!block;n#requestdata#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/chart_product.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -809,22 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/html/product.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/html/business_type.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/chart_tiny.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -856,10 +740,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/html/product.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/share.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+        <state relative-caret-position="178">
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
           <folding>
             <element signature="e#636#1501#0" expanded="false" />
             <element signature="n#!!block;n#setStartTime#0" expanded="false" />
@@ -871,6 +763,26 @@
             <element signature="n#!!block;n#datePickers#0" expanded="false" />
             <element signature="n#!!block;n#JumpUrl#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/chart_business.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="187" column="20" lean-forward="false" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="20" />
+          <folding>
+            <element signature="e#59#1925#0" expanded="false" />
+            <element signature="e#1962#6815#0" expanded="false" />
+            <element signature="n#!!block;n#requestdata#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/html/business_type.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="212" column="32" lean-forward="true" selection-start-line="212" selection-start-column="32" selection-end-line="212" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

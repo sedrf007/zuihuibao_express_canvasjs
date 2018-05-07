@@ -73,15 +73,18 @@ router.post('/pie',function(req,res,next){
             rows.forEach(function(element,index){
                 premium_all = premium_all+parseInt(element.money);
             });
-            for(i=0;i<4;i++){
+            var length = rows.length;
+            var per_other = premium_all;
+            for(i=0;i<length;i++){
                 per = rows[i].money/premium_all*100;
                 per=per.toFixed(2);
                 premium[i]={
                     insurance_company : rows[i].insurance_company,
                     percentage : per
-                }
+                };
+                per_other = per_other-rows[i].money;
             }
-            per_other = premium_all-rows[0].money-rows[1].money-rows[2].money-rows[3].money;
+
             per_other = per_other/premium_all*100;
             //console.log(per_other);
             per_other = per_other.toFixed(2);

@@ -107,7 +107,7 @@ router.post('/column',function (req,res,next) {
     var province = req.body.province;//new
     var sql = "select sum(premium) as money,province from premium_all where date>='"+start_date+"' and date<='"+end_date+"' group by province order by money desc";
     if(province!=null){
-        sql = "select sum(premium) as money,province from premium_all where date>='"+start_date+"' and date<='"+end_date+"' and province='"+province+"' group by province order by money desc";
+        sql = "select sum(premium) as money,city from premium_all where date>='"+start_date+"' and date<='"+end_date+"' and province='"+province+"' group by city order by money desc";
     }
 
     pool.getConnection(function(err,connection){

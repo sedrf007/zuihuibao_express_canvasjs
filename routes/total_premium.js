@@ -1,14 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
-var pool = mysql.createPool({
-    host     : '127.0.0.1',
-    user     : 'jichenjie',
-    password : 'Aa1993319!',
-    database : 'dbzhb',
-    port:3326,
-    connectionLimit:10
-});
+var config = require('../config');
+if(process.env.NODE_ENV=='development'){
+    var mysql_config = config.dev
+}else{
+    var mysql_config = config.online
+}
+var pool = mysql.createPool(mysql_config);
 //connection.connect();
 //connection.end();
 
